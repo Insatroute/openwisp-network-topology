@@ -26,7 +26,7 @@ def assign_permissions_to_groups(apps, schema_editor):
     admin_can_manage = ["link", "node", "topology"]
     manage_operations = ["add", "change", "delete", "view"]
     view_only_operations = ["view"]
-    Group = apps.get_model("openwisp_users", "Group")
+    Group = apps.get_model("nexapp_users", "Group")
 
     try:
         admin = Group.objects.get(name="Administrator")
