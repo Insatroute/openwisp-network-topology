@@ -25,18 +25,15 @@ from ..tasks import handle_update_topology
 from ..utils import print_info
 
 STRATEGIES = (("fetch", _("FETCH")), ("receive", _("RECEIVE")))
-
+LABELS = (("zerotier", _("ZEROTIER")), ("ipsec", _("IPSEC")))
 
 class AbstractTopology(ShareableOrgMixin, TimeStampedEditableModel):
     label = models.CharField(
-    _("label"),
-    max_length=64,
-    choices=[
-        ("zerotier", _("ZeroTier")),
-        ("ipsec", _("IPSec")),
-    ],
-    default="zerotier",
-)
+        _("label"),
+        max_length=64,
+        choices=LABELS,
+        default="zerotier",
+    )
     parser = models.CharField(
         _("format"),
         choices=PARSERS,
